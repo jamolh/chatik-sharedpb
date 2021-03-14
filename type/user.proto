@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package shared.type;
+
+// import "type/policiesGroup.proto";
+option go_package = "github.com/jamolh/chatik-sharedpb/type/typepb";
+
+message User {
+  string id = 1;
+  string first_name = 2;
+  string middle_name = 3;
+  string last_name = 4;
+  string username = 5;
+  string password = 6;
+  string phone_number = 7;
+  string email = 8;
+  bool enabled = 9;
+  string created_at = 10;
+  string updated_at = 11;
+}

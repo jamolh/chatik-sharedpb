@@ -1,0 +1,57 @@
+
+syntax = "proto3";
+
+package shared.service;
+
+import "type/user.proto";
+// import "type/status.proto";
+
+option go_package = "github.com/jamolh/chatik-sharedpb/service/chatikpb";
+
+
+service ChatikService {
+    rpc Ping (PingRequest) returns (PingResponse);
+  // Create new user
+}
+
+message PingRequest {
+    string message = 1;
+}
+
+message PingResponse {
+    string message = 1;
+}
+
+message GenerateJWTRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message GenerateJWTResponse {
+  string request_id = 1;
+//   type.Status status = 2;
+  string token = 3;
+  type.User user = 4;
+}
+
+message ValidateJWTRequest {
+  string request_id = 1;
+  string token = 2;
+}
+
+message ValidateJWTResponse {
+  string request_id = 1;
+// //   type.Status status = 2;
+}
+
+message JWTAuthRequest {
+  string request_id = 1;
+  string token = 2;
+  string api = 3;
+  string action = 4;
+}
+
+message JWTAuthResponse {
+  string request_id = 1;
+// //   type.Status status = 2;
+}

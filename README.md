@@ -1,2 +1,2 @@
 # chatik-sharedpb
-proto files for chatik
+repo for proto files of chatik-app
