@@ -79,7 +79,6 @@ message ValidateJWTRequest {
 
 message ValidateJWTResponse {
   string request_id = 1;
-// //   type.Status status = 2;
 }
 
 message JWTAuthRequest {
@@ -91,5 +90,4 @@ message JWTAuthRequest {
 
 message JWTAuthResponse {
   string request_id = 1;
-// //   type.Status status = 2;
 }
