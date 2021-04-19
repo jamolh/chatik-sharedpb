@@ -12,9 +12,20 @@ message User {
   string last_name = 4;
   string username = 5;
   string password = 6;
-  string phone_number = 7;
-  string email = 8;
-  bool enabled = 9;
-  string created_at = 10;
-  string updated_at = 11;
+  string token = 7;
+  string phone_number = 8;
+  string email = 9;
+  bool enabled = 10;
+  bool active = 11;
+  string created_at = 12;
+  string updated_at = 13;
+}
+
+message Login {
+  string username = 1;
+  string password = 2;
+}
+
+message Logout {
+  string token = 1;
 }

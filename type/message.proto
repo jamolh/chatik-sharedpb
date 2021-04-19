@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package shared.type;
+
+// import "type/policiesGroup.proto";
+option go_package = "github.com/jamolh/chatik-sharedpb/type/typepb";
+
+message Message {
+    string token = 1;
+    string message = 2;
+}

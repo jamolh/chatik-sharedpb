@@ -3,15 +3,18 @@ syntax = "proto3";
 
 package shared.service;
 
+import "type/message.proto";
 import "type/user.proto";
-// import "type/status.proto";
 
 option go_package = "github.com/jamolh/chatik-sharedpb/service/chatikpb";
 
 
 service ChatikService {
-    rpc Ping (PingRequest) returns (PingResponse);
-  // Create new user
+  rpc Ping (PingRequest) returns (PingResponse);
+  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse);
+  rpc Login(LoginRequest) returns (LoginResponse) {}
+  rpc Logout(LogoutRequest) returns (LogoutResponse) {}
+  rpc Stream(stream StreamRequest) returns (stream StreamResponse) {}
 }
 
 message PingRequest {
@@ -22,16 +25,51 @@ message PingResponse {
     string message = 1;
 }
 
-message GenerateJWTRequest {
-  string username = 1;
-  string password = 2;
+message CreateUserRequest {
+  string request_id = 1;
+  type.User user = 2;
 }
 
-message GenerateJWTResponse {
+message CreateUserResponse {
   string request_id = 1;
-//   type.Status status = 2;
-  string token = 3;
-  type.User user = 4;
+  type.User user = 2;
+  uint32 code = 3;
+}
+
+message LoginRequest {
+  string request_id = 1;
+  type.Login login = 2;
+}
+
+message LoginResponse {
+  string request_id = 1;
+  type.User user = 2;
+}
+
+message LogoutRequest {
+  string request_id = 1;
+  type.User user = 2;
+}
+
+message LogoutResponse {
+  string request_id = 1;
+}
+
+message StreamRequest {
+  string message = 2;
+}
+
+message StreamResponse {
+  string request_id = 1;
+  string created_at = 2;
+
+  type.User user = 3;
+
+  oneof event {
+    type.Login   client_login    = 4;
+    type.Logout  client_logout   = 5;
+    type.Message client_message  = 6;
+  }
 }
 
 message ValidateJWTRequest {
