@@ -8,13 +8,11 @@ option go_package = "github.com/jamolh/chatik-sharedpb/type/typepb";
 message User {
   string id = 1;
   string first_name = 2;
-  string middle_name = 3;
-  string last_name = 4;
+  string last_name = 3;
   string username = 5;
   string password = 6;
   string token = 7;
   string phone_number = 8;
-  string email = 9;
   bool enabled = 10;
   bool active = 11;
   string created_at = 12;
