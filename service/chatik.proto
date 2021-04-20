@@ -14,6 +14,7 @@ service ChatikService {
   rpc RegisterUser (RegisterUserRequest) returns (RegisterUserResponse);
   rpc Login(LoginRequest) returns (LoginResponse) {}
   rpc Logout(LogoutRequest) returns (LogoutResponse) {}
+  rpc ConfirmPassword (ConfirmPasswordRequest) returns (ConfirmPasswordResponse);
   rpc Stream(stream StreamRequest) returns (stream StreamResponse) {}
 }
 
@@ -95,3 +96,12 @@ message JWTAuthResponse {
 }
 
 message Shutdown {}
+
+message ConfirmPasswordRequest {
+  string request_id = 1;
+  type.OneTimePassword otp = 2;
+}
+
+message ConfirmPasswordResponse {
+  string request_id = 1;
+}
