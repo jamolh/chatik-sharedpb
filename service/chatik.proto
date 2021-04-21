@@ -104,4 +104,5 @@ message ConfirmPasswordRequest {
 
 message ConfirmPasswordResponse {
   string request_id = 1;
+  type.User user = 2;
 }
