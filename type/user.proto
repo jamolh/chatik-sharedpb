@@ -13,11 +13,11 @@ message User {
   string password = 6;
   string token = 7;
   string phone_number = 8;
-  bool registered = 9;
-  bool connected = 10;
-  bool enabled = 11;
-  string created_at = 12;
-  string updated_at = 13;
+  bool authorized = 9;
+  bool connected = 11;
+  bool enabled = 12;
+  string created_at = 13;
+  string updated_at = 14;
 }
 
 message Login {
